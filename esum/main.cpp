@@ -1,16 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-// long long giaithua(int n)
-// {
-//     long long s = 1;
-//     for(int i = 2; i <= n; i++)
-//     {
-//         s = s * i;
-//     }
-//     return s;
-// }
-
 int main(){
     freopen("esum.inp", "r", stdin);
     freopen("esum.out", "w", stdout);
