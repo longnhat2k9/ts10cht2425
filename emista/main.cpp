@@ -8,28 +8,30 @@ int main(){
     freopen("emista.out", "w", stdout);
 
     long long n, k; cin >> n >> k;
-    map<long long, long long>a; long long mx = 0;
-    for(long long i = 0; i < n; i++)
+    vector<pair<long long, long long>>a(n);
+    for(int i = 0; i < n; i++)
     {
-        long long x, y; cin >> x >> y; mx = max(mx, x);
-        a.insert(make_pair(x, y));
+        cin >> a[i].first >> a[i].second;
     }
 
-    k = k*2 + 1;
-    if(k > M) k = mx;
-    long long sum = 0, mxsum;
-    for(long long i = 0; i < k; i++)
+    sort(a.begin(), a.end());
+
+    int l = 0;
+    long long mx, sum; mx = sum = 0;
+    k = 2*k;
+    
+    for(int r = 0; r < n; r++)
     {
-        sum += a[i];
+        sum += a[r].second;
+
+        while(a[r].first - a[l].first > k)
+        {
+            sum -= a[l].second;
+            l++;
+        }
+
+        mx = max(sum, mx);
     }
-    mxsum = sum;
-    long long l = 0;
-    for(long long i = k; i <= mx; i++)
-    {
-        sum -= a[l];
-        sum += a[i];
-        mxsum = max(sum, mxsum);
-        l++;
-    }
-    cout << mxsum;
+
+    cout << mx;
 }
