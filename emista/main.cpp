@@ -35,7 +35,7 @@ void cs1(long long &n, long long &k)
 
 void cs2(long long &n, long long &k)
 {
-    vector<long long>a(M, 0); long long mxn = 0;
+    vector<long long>a(M + 1, 0); long long mxn = 0;
     for(int i = 0; i < n; i++)
     {
         long long x, y; cin >> x >> y;
