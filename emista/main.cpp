@@ -3,6 +3,7 @@ using namespace std;
 
 const int M = 1e6;
 const int N = 1e5;
+const int G = 1e3;
 
 void cs1(long long &n, long long &k)
 {
@@ -12,10 +13,20 @@ void cs1(long long &n, long long &k)
         cin >> a[i].first >> a[i].second;
     }
 
+    long long mx, sum; mx = sum = 0;
     sort(a.begin(), a.end());
 
+    if(a[n - 1].first <= k)
+    {
+        for(int i = 0; i < n; i++)
+        {
+            sum += a[i].second;
+        }
+        cout << sum;
+        exit(0);
+    }
+
     int l = 0;
-    long long mx, sum; mx = sum = 0;
     
     for(int r = 0; r < n; r++)
     {
@@ -45,6 +56,16 @@ void cs2(long long &n, long long &k)
     k++;
 
     long long sum = 0, mx = 0;
+    if(mxn <= k)
+    {
+        for(int i = 0; i <= mxn; i++)
+        {
+            sum += a[i];
+        }
+        cout << sum;
+        exit(0);
+    }
+
     for(int i = 0; i < k; i++) sum += a[i];
     mx = sum;
 
@@ -58,6 +79,7 @@ void cs2(long long &n, long long &k)
     cout << mx;
 }
 
+
 int main(){
     freopen("emista.inp", "r", stdin);
     freopen("emista.out", "w", stdout);
@@ -65,6 +87,7 @@ int main(){
     long long n, k; cin >> n >> k;
     k = 2*k;
 
+    
     if(n <= N) cs1(n, k);
     else cs2(n, k);
 }
