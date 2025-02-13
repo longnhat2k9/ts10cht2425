@@ -81,6 +81,9 @@ void cs2(long long &n, long long &k)
 
 
 int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    
     freopen("emista.inp", "r", stdin);
     freopen("emista.out", "w", stdout);
 
